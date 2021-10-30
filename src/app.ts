@@ -1,4 +1,7 @@
+import "reflect-metadata";
 import "dotenv/config";
+import "./database";
+
 import cors from "cors";
 import express from "express";
 

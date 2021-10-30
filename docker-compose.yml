@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  database_popcorn:
+    image: mysql
+    container_name: database_popcorn
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_USER=docker
+      - MYSQL_PASSWORD=test
+      - MYSQL_DATABASE=popcorntv
+      - MYSQL_ROOT_PASSWORD=test
+    volumes:
+      - mysqldata:/data/mysql
+  app:
+    build: .
+    container_name: popcorntv-backend
+    ports:
+      - 3333:3333
+    volumes:
+      - .:/usr/app
+
+volumes:
+  mysqldata:
+    driver: local
