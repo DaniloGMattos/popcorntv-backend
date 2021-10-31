@@ -1,0 +1,14 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3306,
+  "synchronize": false,
+  "username": "docker",
+  "password": "test",
+  "database": "popcorntv",
+  "entities": ["./src/modules/Movies/entities/*.ts"],
+  "migrations": ["./src/database/migrations/*ts"],
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
+}

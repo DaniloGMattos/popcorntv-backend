@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 import { Request, Response } from "express";
 
 import { moviedb } from "../../../../services/axios";
-import { CreateMovieUseCase } from "./CreateMovieuUseCase";
+import { CreateMovieUseCase } from "./CreateMovieUseCase";
 // apenas um controller por usecase
 class CreateMoviesController {
   constructor(private createMovieUseCase: CreateMovieUseCase) {}

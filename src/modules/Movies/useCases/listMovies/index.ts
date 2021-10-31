@@ -1,10 +1,12 @@
 import { MoviesRepository } from "../../repositories/MoviesRepository";
 import { ListMoviesController } from "./ListMoviesController";
-import { ListMoviesUseCase } from "./ListMovieUseCase";
+import { ListMovieUseCase } from "./ListMovieUsesCase";
 
-const moviesRepository = MoviesRepository.getInstance();
-const listMoviesUseCase = new ListMoviesUseCase(moviesRepository);
+export default (): ListMoviesController => {
+  const moviesRepository = new MoviesRepository();
+  const listMoviesUseCase = new ListMovieUseCase(moviesRepository);
 
-const listMoviesController = new ListMoviesController(listMoviesUseCase);
+  const listMoviesController = new ListMoviesController(listMoviesUseCase);
 
-export { listMoviesController };
+  return listMoviesController;
+};

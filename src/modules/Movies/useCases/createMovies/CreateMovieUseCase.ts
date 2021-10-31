@@ -1,4 +1,4 @@
-import { Movie } from "../../model/Movie";
+import { Movie } from "../../entities/Movie";
 import { IMoviesRepository } from "../../repositories/implementations/IMoviesRepository";
 
 // TODO : Validação
@@ -7,8 +7,8 @@ type IRequest = Array<Movie>;
 
 class CreateMovieUseCase {
   constructor(private moviesRepository: IMoviesRepository) {}
-  execute(movies: IRequest): void {
-    this.moviesRepository.create(movies);
+  async execute(movies: IRequest): Promise<void> {
+    await this.moviesRepository.create(movies);
   }
 }
 export { CreateMovieUseCase };

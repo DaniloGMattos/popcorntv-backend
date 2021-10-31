@@ -1,29 +1,26 @@
-import { Movie } from "../model/Movie";
+import { getRepository, Repository } from "typeorm";
+
+import { Movie } from "../entities/Movie";
 import {
   ICreateMoviesDTO,
   IMoviesRepository,
 } from "./implementations/IMoviesRepository";
 
-// Singleton
 class MoviesRepository implements IMoviesRepository {
-  private movies: Movie[];
+  private repository: Repository<Movie>;
   private static INSTANCE: MoviesRepository;
 
-  private constructor() {
-    this.movies = [];
+  constructor() {
+    this.repository = getRepository(Movie);
   }
-  public static getInstance(): MoviesRepository {
-    if (!MoviesRepository.INSTANCE) {
-      MoviesRepository.INSTANCE = new MoviesRepository();
-    }
-    return MoviesRepository.INSTANCE;
+
+  async create(movies: ICreateMoviesDTO): Promise<void> {
+    const topMovies = this.repository.create(movies);
+    await this.repository.save(topMovies);
   }
-  create(movies: ICreateMoviesDTO): void {
-    console.log(movies);
-    this.movies.push(...movies);
-  }
-  list(): Movie[] {
-    return this.movies;
+  async list(): Promise<Movie[]> {
+    const movies = await this.repository.find();
+    return movies;
   }
 }
 export { MoviesRepository };
