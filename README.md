@@ -48,8 +48,10 @@ In the TMDb a request to the top rated movie will movies with the highest vote a
 ## Features implemented today 
 - Save TMDb top rated movies top container database
 - List top rated movies
+- Save movie genres
+- Return a list of movie genres
 
-## Futher development and point to improve
+## Futher development and points to improve
 
 For this  project, after the 3 days of the challenge I intend to archive 100% of the [Figma design](https://www.figma.com/file/6RhE6cOOnR5rd9dCEKlhZP/Untitled?node-id=14%3A188), including improving the Figma Design itself. To archive this goal I need to : 
 
