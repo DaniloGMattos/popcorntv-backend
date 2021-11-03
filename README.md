@@ -1,4 +1,4 @@
-# Popcorntv Front-end App
+# Popcorntv Back-end App
 ![Banner](https://i.imgur.com/J7j0t9G.png)
 
 A movie data showcase applicationt built using [MovieDB API](https://themoviedb.org) with NodeJs, Typescript, TypeORM, Docker and mySQL.
